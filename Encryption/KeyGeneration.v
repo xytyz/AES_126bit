@@ -1,12 +1,10 @@
-`timescale 1ns / 1ps
-
 module KeyGeneration(rc,key,keyout);
     
    input [3:0] rc;
    input [127:0]key;
    output [127:0] keyout;
    
-   wire [31:0] w0,w1,w2,w3,tem;
+    wire [31:0] w0,w1,w2,w3,temp;
          
                
        assign w0 = key[127:96];
@@ -15,16 +13,16 @@ module KeyGeneration(rc,key,keyout);
        assign w3 = key[31:0];
        
        
-       assign keyout[127:96]= w0 ^ tem ^ rcon(rc);
-       assign keyout[95:64] = w0 ^ tem ^ rcon(rc)^ w1;
-       assign keyout[63:32] = w0 ^ tem ^ rcon(rc)^ w1 ^ w2;
-       assign keyout[31:0]  = w0 ^ tem ^ rcon(rc)^ w1 ^ w2 ^ w3;
+       assign keyout[127:96]= w0 ^ temp ^ rcon(rc);
+       assign keyout[95:64] = w0 ^ temp ^ rcon(rc)^ w1;
+       assign keyout[63:32] = w0 ^ temp ^ rcon(rc)^ w1 ^ w2;
+       assign keyout[31:0]  = w0 ^ temp ^ rcon(rc)^ w1 ^ w2 ^ w3;
        
        
-       sbox a1(.a(w3[23:16]),.c(tem[31:24]));
-       sbox a2(.a(w3[15:8]),.c(tem[23:16]));
-       sbox a3(.a(w3[7:0]),.c(tem[15:8]));
-       sbox a4(.a(w3[31:24]),.c(tem[7:0]));
+    sbox s1(.in(w3[23:16]),.out(temp[31:24]));
+    sbox s2(.in(w3[15:8]),.out(temp[23:16]));
+    sbox s3(.in(w3[7:0]),.out(temp[15:8]));
+    sbox s4(.in(w3[31:24]),.out(temp[7:0]));
        
        
        
