@@ -13,7 +13,7 @@ The full AES process is based on this algorithm and it involves a total of 10 ro
 
 ## Breakdown of the Modules
 
-![Block Diagram of the Project](/Assets/Block_diagram.png "Block Diagram")
+![Block Diagram of the Project](https://pub.mdpi-res.com/electronics/electronics-09-01665/article_deploy/html/images/electronics-09-01665-g001.png?1603099099)
 
 ## References
 
