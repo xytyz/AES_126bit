@@ -1,4 +1,4 @@
-# AES_126bit
+# AES_128bit
 Implementation of the Advanced Encryption System (AES) on the  Digilent Basys-3 FPGA using the Rijndael S-Box Algorithm on 128 bit for the College Major Project.
 
 ## Algorithm Used
